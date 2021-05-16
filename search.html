@@ -33,11 +33,441 @@
   </div>
 </nav>
 
+
+
+<table class="table mx-auto mt-5" style="width: 1000px;">
+  <thead>
+    <tr>
+    <th>음식점 검색</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr> <!--체크박스 초기화 버튼 추가할것-->
+    <td><label style="cursor:pointer"><input type="checkbox" name="Food_type" value="kor"/> 한식</label></td>
+    <td><label style="cursor:pointer"><input type="checkbox" name="Food_type" value="bunshik"/> 분식</label></td>
+    <td><label style="cursor:pointer"><input type="checkbox" name="Food_type" value="cafe"/> 카페 / 디저트</label></td>  
+    <td rowspan="2"><button id="searchButton" class= "btn btn-secondary btn-sm btn-block" style="height: 70px; font-size: large;" type="button">검색</button></td>
+  </tr>
+  <tr>
+    <td><label style="cursor:pointer"><input type="checkbox" name="Food_type" value="japan"/> 돈까스 / 회 / 일식</label></td>
+    <td><label style="cursor:pointer"><input type="checkbox" name="Food_type" value="chicken"/> 치킨 / 피자</label></td>
+ 
+    <td><label style="cursor:pointer"><input type="checkbox" name="Food_type" value="fastfood"/> 패스트 푸드</label></td>     
+  </tr>  
+  <tr>
+    <td><label style="cursor:pointer"><input type="checkbox" name="Food_type" value="asian"/> 아시안 / 양식</label></td> 
+    <td><label style="cursor:pointer"><input type="checkbox" name="Food_type" value="china"/> 중식</label></td>
+    <td><label style="cursor:pointer"><input type="checkbox" name="Food_type" value="bossam"/> 보쌈 / 족발</label></td>   
+    <td rowspan="2"><button id="randomButton" class= "btn btn-danger btn-sm btn-block" style="height: 70px; font-size: large;" type="button">랜덤추첨</button></td>
+  </tr>
+  <tr>
+    <td><label style="cursor:pointer"><input type="checkbox" name="Food_type" value="zzim"/> 찜 / 탕</label></td> 
+    <td><label style="cursor:pointer"><input type="checkbox" name="Food_type" value="lunchbox"/> 도시락</label></td>
+    <td><label style="cursor:pointer"><input type="checkbox" name="Food_type" value="hope"/> 주점</label></td> 
+  </tr>
+</tbody>
+</table>
+<table class="table mx-auto mt-5" style="width: 1000px">
+  <thead>
+    <tr>
+      <th scope="col">식당</th>
+      <th scope="col">카테고리</th>
+      <th scope="col">위치</th>
+    </tr>
+  </thead>
+  <tbody id="addRestaurant"> 
+  </tbody>
+</table>
+<script>
+  function reset(){
+    let addbody = document.getElementById("addRestaurant");
+    while(addbody.firstChild) {
+      addbody.removeChild(addbody.firstChild);
+    }
+  }
+  function addtoList(info){
+    let addbody = document.getElementById("addRestaurant");
+    let tr = document.createElement("tr");
+    let td1 = document.createElement("td");
+    td1.innerHTML = info[0] // 추가할것
+    let td2 = document.createElement("td");
+    td2.innerHTML = info[1] // 추가할것
+    let td3 = document.createElement("td");
+    td3.innerHTML = info[2] // 추가할것
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    addbody.appendChild(tr);
+  }
+  const restaurant={
+    kor: [
+    {
+        name:"청년밥상",
+        category:"한식",
+        place:"경기 수원시 장안구 서부로 2136번길 10 1층",
+      },
+      {
+        name:"명륜진사갈비",
+        category:"갈비",
+        place:"경기 수원시 장안구 서부로 2129-5 1층",
+      },
+      {
+        name:"대동집 수원성균관대점",
+        category:"한식",
+        place:"경기 수원시 장안구 율전로108번길 15",
+      },
+      {
+        name:"우특심한우곱창 장안구율전점	",
+        category:"곱창, 막창	",
+        place:"경기 수원시 장안구 율전로 90-10",
+      },
+      {
+        name:"보리네주먹고기	",
+        category:"삼겹살",
+        place:"경기 수원시 장안구 율전로98번길 6-9",
+      },
+      {
+        name:"성대목장",
+        category:"육류, 고기	",
+        place:"경기 수원시 장안구 서부로2105번길 16-1",
+      },
+      {
+        name:"백령도생바지락칼국수",
+        category:"국수",
+        place:"경기 수원시 장안구 화산로233번길 49",
+      },
+      {
+        name:"박가네숯불닭갈비",
+        category:"닭요리",
+        place:"경기 수원시 장안구 화산로233번길 46",
+      },
+      {
+        name:"차돌풍 수원성대점",
+        category:"육류, 고기",
+        place:"경기 수원시 장안구 화산로233번길 62 1층",
+      },
+      {
+        name:"최고집원조수구레",
+        category:"육류, 고기",
+        place:"경기 수원시 장안구 서부로2107 1층",
+      },
+      {
+        name:"성대밥상",
+        category:"한식",
+        place:"경기 수원시 장안구 서부로2126번길 50-10 1층",
+      },
+      {
+        name:"일미닭갈비파전 성대점",
+        category:"닭요리",
+        place:"경기 수원시 장안구 서부로2106번길 26-3",
+      },
+      {
+        name:"춘천닭갈비칡냉면",
+        category:"닭요리",
+        place:"경기 수원시 장안구 화산로233번길 64 1층",
+      },
+      {
+        name:"알촌",
+        category:"한정식",
+        place:"경기 수원시 장안구 서부로2106번길 32",
+      },
+      {
+        name:"낮것상칼국수",
+        category:"국수",
+        place:"경기 수원시 장안구 서부로2106번길 36-4",
+      },
+      {
+        name:"일미리금계찜닭 수원성균관대점",
+        category:"닭요리",
+        place:"경기 수원시 장안구 서부로2126번길 18 1층",
+      },
+      {
+        name:"한창희 천하일면 수원성대점	",
+        category:"국수",
+        place:"경기 수원시 장안구 화산로233번길 46",
+      },
+      {
+        name:"마포갈비",
+        category:"갈비",
+        place:"경기 수원시 장안구 율전로98번길 20",
+      },
+    ],
+    bunshik: [
+      {
+        name:"봉구스밥버거 수원성대2호점",
+        category:"주먹밥",
+        place:"경기 수원시 장안구 서부로2126번길 30 1층",
+      },
+      {
+        name:"만다김밥",
+        category:"분식",
+        place:"경기 수원시 장안구 서부로2105 16-6 1층",
+      },
+      {
+        name:"순희네떡달",
+        category:"떡볶이",
+        place:"경기 수원시 장안구 서부로2126번길 24",
+      },
+    ],
+    cafe: [
+    {
+        name:"바바플",
+        category:"제과, 베이커리",
+        place:"경기 수원시 장안구 서부로2126번길 30 101호",
+      },
+    ],
+    japan: [
+    {
+      name:"힌카쿠",
+      category:"일식",
+      place:"	경기 수원시 장안구 서부로2126번길 10",
+      },
+      {
+      name:"선참치",
+      category:"참치회",
+      place:"	경기 수원시 장안구 서부로2105번길 26-4",
+      },
+      {
+      name:"미가",
+      category:"일본식라면",
+      place:"	경기 수원시 장안구 화산로233번길 59",
+      },
+      {
+      name:" 키와마루아지 성균관대점",
+      category:"일본식라면",
+      place:"		경기 수원시 장안구 서부로2105번길 26-3",
+      },
+      {
+      name:"바른스시 성대점	",
+      category:"초밥, 롤	",
+      place:"		경기 수원시 장안구 서부로 2125 율전빌딩 2층",
+      },
+    {
+      name:"히토리",
+      category:"일식",
+      place:"	경기 수원시 장안구 서부로2112 1층 103호",
+      },
+    {
+      name:"왕돈까스",
+      category:"돈까스, 우동",
+      place:"	경기 수원시 장안구 서부로2106번길 21",
+      },
+    {
+      name:"포크포크매콤돈가스&칡불냉면",
+      category:"돈까스, 우동",
+      place:"	경기 수원시 장안구 서부로2106번길 14 1층",
+      },
+      {
+      name:"인마루 수원성대점",
+      category:"일식",
+      place:"	경기 수원시 장안구 서부로2106번길 22",
+      },
+      {
+      name:"명동생돈까스",
+      category:"돈까스, 우동",
+      place:"	경기 수원시 장안구 서부로2106번길 17",
+      },
+      {
+      name:"본찌 돈까스 성대점",
+      category:"돈까스, 우동",
+      place:"	경기 수원시 장안구 서부로2106번길 26-2",
+      },
+    ],
+    chicken: [
+    {
+      name:"BBQ 수원성대역점",
+      category:"치킨",
+      place:"	경기 수원시 장안구 서부로2126번길 27 1층",
+      },
+      {
+      name:"썬더치킨 수원성균관대점",
+      category:"치킨",
+      place:"	경기 수원시 장안구 율전로 102-5",
+      },
+      {
+      name:"동네아저씨 수원성균관대점	",
+      category:"치킨",
+      place:"	경기 수원시 장안구 서부로2123번길 29 2층",
+      },
+      {
+      name:"지코바 율전점",
+      category:"치킨",
+      place:"	경기 수원시 장안구 서부로2126번길 17 1층",
+      },
+      {
+      name:"고피자 수원성대점",
+      category:"피자",
+      place:"	경기 수원시 장안구 서부로2126번길 18",
+      },
+      {
+      name:"피자스쿨 수원성대점	",
+      category:"피자",
+      place:"	경기 수원시 장안구 서부로2123번길 32",
+      },
+      {
+        name:"노랑통닭 성균관대점",
+      category:"치킨",
+      place:"	경기 수원시 장안구 화산로213번길 32",
+      },
+    ],
+    hope: [
+    {
+      name:"먹거리고을",
+      category:"호프, 요리주점",
+      place:"	경기 수원시 장안구 서부로2126번길 10",
+      },
+      {
+      name:"옥집",
+      category:"호프, 요리주점",
+      place:"	경기 수원시 장안구 화산로233번길 25 1층",
+      },
+    ],
+    asian: [
+      {
+      name:"벨라튀니지",
+      category:"퓨전요리",
+      place:"	경기 수원시 장안구 서부로2106번길 21 지하 1층",
+      },
+      {
+      name:"담은샤브칼국수",
+      category:"샤브샤브",
+      place:"	경기 수원시 장안구 화산로233번길 60",
+      },
+      {
+      name:"니뽕내뽕 수원성균관대점	",
+      category:"퓨전요리",
+      place:"	경기 수원시 장안구 서부로 2119 2층",
+      },
+      {
+      name:"비에뜨반미 수원성대점",
+      category:"베트남음식",
+      place:"	경기 수원시 장안구 서부로2126번길 29",
+      },
+      {
+      name:"오덮밥",
+      category:"퓨전요리",
+      place:"	경기 수원시 장안구 서부로2126번길 24",
+      },
+    ],
+    china: [
+    {
+      name:"중경마라탕 3호점",
+      category:"중식",
+      place:"	경기 수원시 장안구 서부로2106번길 10",
+      },
+      {
+      name:"짬뽕타임",
+      category:"중화요리",
+      place:"	경기 수원시 장안구 서부로2123번길 34-3 2층",
+      },
+      {
+      name:"귀신반점 수원성대점",
+      category:"중화요리",
+      place:"	경기 수원시 장안구 서부로2105번길 16-1",
+      },
+      {
+      name:"성대양꼬치&훠궈",
+      category:"양꼬치, 훠궈",
+      place:"	경기 수원시 장안구 화산로233번길 54",
+      },
+      {
+      name:"탕화쿵푸마라탕",
+      category:"중식",
+      place:"	경기 수원시 장안구 서부로2105번길 12",
+      },
+    ],
+    bossam:[
+      {
+      name:"항아리보쌈 성대직영점",
+      category:"족발, 보쌈",
+      place:"	경기 수원시 장안구 화산로233번길 64 2층",
+      },
+    ],
+    zzim:[
+    {
+        name:"1인감자탕뼈해장국 율전점	",
+        category:"감자탕",
+        place:"경기 수원시 장안구 화산로233번길 43",
+      },
+    ],
+    lunchbox:[
+    {
+      name:"한솥도시락 수원성대점",
+      category:"도시락",
+      place:"	경기 수원시 장안구 서부로 2112",
+      },
+      {
+      name:"본도시락 수원성균관대점",
+      category:"도시락",
+      place:"	경기 수원시 장안구 서부로2126번길 30",
+      },
+    ],
+    fastfood:[
+    {
+      name:"밀플랜비 성균관대점",
+      category:"패스트푸드",
+      place:"	경기 수원시 장안구 서부로2106번길 22 1층",
+      },
+      {
+      name:"롯데리아",
+      category:"패스트푸드",
+      place:"	경기 수원시 장안구 서부로 2119 1, 2층",
+      },
+      {
+      name:"맘스터치 수원성균관대점",
+      category:"패스트푸드",
+      place:"	경기 수원시 장안구 서부로2128 2층",
+      },
+      {
+      name:"맥도날드 수원성균관대점	",
+      category:"패스트푸드",
+      place:"	경기 수원시 장안구 서부로 2127 1~3층",
+      },
+    ],
+  }
+  let Sbutton = document.querySelector("#searchButton");
+  Sbutton.addEventListener("click", ()=>{// 클릭시 초기화 기능 추가할것 
+    reset();
+    const food = 'input[name="Food_type"]:checked';
+    const selectedType = document.querySelectorAll(food);
+    selectedType.forEach((el) => {
+    let info=new Array(3);
+    let index = el.value;
+    for(let i=0;i<restaurant[index].length;i++){
+      
+      info[0] = restaurant[index][i].name;
+      info[1] =restaurant[index][i].category;
+      info[2] =restaurant[index][i].place;
+      addtoList(info);
+    }
+    });
+
+
+  });
+  
+  let Rbutton = document.querySelector("#randomButton");
+  Rbutton.addEventListener("click",()=>{
+    reset();
+    let info=new Array(3);
+    const food = 'input[name="Food_type"]:checked';
+    const selectedType = document.querySelectorAll(food);
+    let index=selectedType[Math.floor(Math.random()*selectedType.length)].value;
+    let secondindex = Math.floor(Math.random()*restaurant[index].length);
+    info[0] = restaurant[index][secondindex].name;
+    info[1] = restaurant[index][secondindex].category;
+    info[2] = restaurant[index][secondindex].place;
+    addtoList(info);
+
+  });
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/0a612614d9.js" crossorigin="anonymous"></script>
-
 
 </body>
 </html>
