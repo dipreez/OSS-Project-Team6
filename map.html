@@ -1,166 +1,299 @@
 ﻿<!DOCTYPE html>
 <html lang="ko">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<title>SKKU-뭐먹지?</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <style>
-        /* 너비와 높이가 지정되어 있지 않으면 지도가 읽어지지 않음(에러는 안남, 안보임) */
-        #map{
-            width: 100%;
-            height: 800px;
-        }
-    </style>
- 
-    <!-- Google 지도 api 사용 스크립트 추가 -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWx4XWykq-D6avipBaQaRVN_nr3fkjBNU&callback=initMap"async defer></script>
- 
-    <script>
-        function showMap(){
-            //지도가 보여질 요소 찾아오기
-            var e= document.getElementById('map');
- 
-            // Goolgle지도 객체 생성 및 e요소 보여주기!!
-            new google.maps.Map(e, {center:{lat:37.29715061855119, lng:126.97129138783319}, zoom:17});
-        }
-        function showMarker(){
-	     var e= document.getElementById('map');
-             var folkfolk= new google.maps.LatLng( 37.29681430923355, 126.97142148572466);
+        <title>SKKU-뭐먹지?</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+            crossorigin="anonymous"
+        />
+        <style>
+            /* 너비와 높이가 지정되어 있지 않으면 지도가 읽어지지 않음(에러는 안남, 안보임) */
+            #map {
+                width: 100%;
+                height: 800px;
+            }
+        </style>
 
-            // 표시되는 지도의 옵션 객체
-            var opts= {
-                center: folkfolk,
-                zoom: 17
-            };
+        <!-- Google 지도 api 사용 스크립트 추가 -->
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWx4XWykq-D6avipBaQaRVN_nr3fkjBNU&callback=initMap"
+            async
+            defer
+        ></script>
 
-	    var map=new google.maps.Map( e , opts );
+        <script>
+            function showMap() {
+                //지도가 보여질 요소 찾아오기
+                var e = document.getElementById("map");
 
-             var skku=[
-                    ['포크포크매콤돈까스', 37.29681430923355, 126.97142148572466],
-                    ['중경마라탕3호점', 37.296808034009764, 126.97150184346668],
-                    ['인마루', 37.29711078879305, 126.97157223300627],
-                    ['명동생돈까스', 37.29699303523626, 126.97123522873798],
-		    ['밀플랜비', 37.29709623730881, 126.97157204367767],
-		    ['본찌돈까스',37.297186438043234, 126.97151669308376],
-		    ['벨라튀니지', 37.29724550319616, 126.97138731085879],
-		    ['한솥도시락 수원성대점', 37.29710252347084, 126.97103057485448],
-		    ['왕돈까스', 37.297244605239285, 126.97137680003557],
-		    ['일미닭갈비파전 성대점', 37.29741494835064, 126.97167822186402],
-		    ['알촌', 37.29753232013258, 126.97173399704519],
-		    ['낮것상칼국수', 37.29756960503628, 126.97200015473275],
-		    ['히토리', 37.29707144564962, 126.9709396416706],
-		    ['비에뜨반미 수원성대점', 37.29813412226695, 126.97318484611552],
-		    ['BBQ 수원 성대역점', 37.298026311021154, 126.9730216377722],
-		    ['바바플', 37.29779845825932, 126.97339730961338],
-		    ['본도시락 수원성균관대점', 37.29775244230901, 126.97336558283054],
-		    ['봉구스 밥버거 수원성대2호점', 37.29780655012186, 126.97334609059288],
-		    ['순희네떡달', 37.29786128755999, 126.97269117651908],
-		    ['오덮밥', 37.29801377889451, 126.97275465527015],
-		    ['일미리금계찜닭 수원성균관대점', 37.29798845793088, 126.97308579049164],
-		    ['고피자 수원성대점', 37.297976727186864, 126.9726900610675],
-		    ['먹거리고을', 37.29813357858195, 126.97224025527028],
-		    ['힌카쿠', 37.29765161941887, 126.97390817953209],
-		    ['맘스터치 수원성균관대점', 37.29826877999009, 126.97173017632522],
-		    ['노랑통닭 성균관대점', 37.298675455463695, 126.97211847943],
-		    ['청년밥상', 37.29876573827282, 126.97276837061254],
-	            ['성대밥상', 37.29765704503354, 126.97373359759912],
-		    ['탕화쿵푸마라탕', 37.29738511093788, 126.97044716967022],
-		    ['최고집원조수구레', 37.297022910885566, 126.97016996703489],
-		    ['춘천닭갈비칡냉면', 37.29719541176646, 126.96990796916974],
-		    ['만다김밥', 37.297063447073405, 126.969557876075],
-		    ['항아리보쌈 성대직영점', 37.29707341683335, 126.96986243382801],
-		    ['미가', 37.297284523347166, 126.97015788145914],
-		    ['차돌풍 수원성대점', 37.29721620069715, 126.96993171136296],
-		    ['정성담은샤브칼국수', 37.29728155991712, 126.96996697610362],
-		    ['성대양꼬치&훠궈', 37.29749904416404, 126.97006426627603],
-		    ['백령도생바지락칼국수', 37.297598573209605, 126.97036976375942],
-		    ['박가네숯불닭갈비', 37.29773566878228, 126.97014906375938],
-		    ['한창희 천하일면 수원성대점', 37.297780806030666, 126.97022413395246],
-		    ['마포갈비', 37.29781893627659, 126.9699114597835],
-		    ['1인감자탕뼈해장국 율전점', 37.297910399756084, 126.97049840169417],
-		    ['니뽕내뽕 수원성균관대점', 37.29796545990036, 126.97079083419402],
-		    ['롯데리아', 37.2979425016984, 126.97084970933109],
-		    ['바른스시 성대점', 37.29860186714138, 126.97100368099282],
-		    ['맥도날드 수원성균관대점', 37.29844983922029, 126.97119259196734],
-		    ['옥집', 37.2986943291727, 126.97077510941845],
-		    ['명륜진사갈비', 37.29898595827222, 126.97132031100803],
-		    ['성대목장', 37.297153229316244, 126.96927514748819],
-		    ['귀신반점 수원성대점', 37.29700046075257, 126.96927540373663],
-		    ['선참치', 37.29706745475912, 126.96905889017708],
-		    ['키와마루아지 성균관대점', 37.29699817214786, 126.96877265161183],
-		    ['우특심한우곱창 장안구율전점', 37.297438047699025, 126.96887433779715],
-		    ['보리네주먹고기', 37.29776256876696, 126.96913619934163],
-		    ['썬더치킨 수원성균관대점', 37.29823630157604, 126.96908280568832],
-		    ['동네아저씨 수원성균관대점', 37.29842437371077, 126.9695089706125],
-	            ['피자스쿨 수원성대점', 37.298540844116104, 126.9694145158],
-		    ['짬뽕타임', 37.29859852914026, 126.96931102677213],
-		    ['대동집 수원성균관대점', 37.29919037387802, 126.97014134103485]
+                // Goolgle지도 객체 생성 및 e요소 보여주기!!
+                new google.maps.Map(e, {
+                    center: { lat: 37.29715061855119, lng: 126.97129138783319 },
+                    zoom: 17,
+                });
+            }
+            function showMarker() {
+                var e = document.getElementById("map");
+                var folkfolk = new google.maps.LatLng(
+                    37.29681430923355,
+                    126.97142148572466
+                );
+
+                // 표시되는 지도의 옵션 객체
+                var opts = {
+                    center: folkfolk,
+                    zoom: 17,
+                };
+
+                var map = new google.maps.Map(e, opts);
+
+                var skku = [
+                    [
+                        "포크포크매콤돈까스",
+                        37.29681430923355,
+                        126.97142148572466,
+                    ],
+                    ["중경마라탕3호점", 37.296808034009764, 126.97150184346668],
+                    ["인마루", 37.29711078879305, 126.97157223300627],
+                    ["명동생돈까스", 37.29699303523626, 126.97123522873798],
+                    ["밀플랜비", 37.29709623730881, 126.97157204367767],
+                    ["본찌돈까스", 37.297186438043234, 126.97151669308376],
+                    ["벨라튀니지", 37.29724550319616, 126.97138731085879],
+                    [
+                        "한솥도시락 수원성대점",
+                        37.29710252347084,
+                        126.97103057485448,
+                    ],
+                    ["왕돈까스", 37.297244605239285, 126.97137680003557],
+                    [
+                        "일미닭갈비파전 성대점",
+                        37.29741494835064,
+                        126.97167822186402,
+                    ],
+                    ["알촌", 37.29753232013258, 126.97173399704519],
+                    ["낮것상칼국수", 37.29756960503628, 126.97200015473275],
+                    ["히토리", 37.29707144564962, 126.9709396416706],
+                    [
+                        "비에뜨반미 수원성대점",
+                        37.29813412226695,
+                        126.97318484611552,
+                    ],
+                    [
+                        "BBQ 수원 성대역점",
+                        37.298026311021154,
+                        126.9730216377722,
+                    ],
+                    ["바바플", 37.29779845825932, 126.97339730961338],
+                    [
+                        "본도시락 수원성균관대점",
+                        37.29775244230901,
+                        126.97336558283054,
+                    ],
+                    [
+                        "봉구스 밥버거 수원성대2호점",
+                        37.29780655012186,
+                        126.97334609059288,
+                    ],
+                    ["순희네떡달", 37.29786128755999, 126.97269117651908],
+                    ["오덮밥", 37.29801377889451, 126.97275465527015],
+                    [
+                        "일미리금계찜닭 수원성균관대점",
+                        37.29798845793088,
+                        126.97308579049164,
+                    ],
+                    [
+                        "고피자 수원성대점",
+                        37.297976727186864,
+                        126.9726900610675,
+                    ],
+                    ["먹거리고을", 37.29813357858195, 126.97224025527028],
+                    ["힌카쿠", 37.29765161941887, 126.97390817953209],
+                    [
+                        "맘스터치 수원성균관대점",
+                        37.29826877999009,
+                        126.97173017632522,
+                    ],
+                    [
+                        "노랑통닭 성균관대점",
+                        37.298675455463695,
+                        126.97211847943,
+                    ],
+                    ["청년밥상", 37.29876573827282, 126.97276837061254],
+                    ["성대밥상", 37.29765704503354, 126.97373359759912],
+                    ["탕화쿵푸마라탕", 37.29738511093788, 126.97044716967022],
+                    [
+                        "최고집원조수구레",
+                        37.297022910885566,
+                        126.97016996703489,
+                    ],
+                    ["춘천닭갈비칡냉면", 37.29719541176646, 126.96990796916974],
+                    ["만다김밥", 37.297063447073405, 126.969557876075],
+                    [
+                        "항아리보쌈 성대직영점",
+                        37.29707341683335,
+                        126.96986243382801,
+                    ],
+                    ["미가", 37.297284523347166, 126.97015788145914],
+                    [
+                        "차돌풍 수원성대점",
+                        37.29721620069715,
+                        126.96993171136296,
+                    ],
+                    [
+                        "정성담은샤브칼국수",
+                        37.29728155991712,
+                        126.96996697610362,
+                    ],
+                    ["성대양꼬치&훠궈", 37.29749904416404, 126.97006426627603],
+                    [
+                        "백령도생바지락칼국수",
+                        37.297598573209605,
+                        126.97036976375942,
+                    ],
+                    ["박가네숯불닭갈비", 37.29773566878228, 126.97014906375938],
+                    [
+                        "한창희 천하일면 수원성대점",
+                        37.297780806030666,
+                        126.97022413395246,
+                    ],
+                    ["마포갈비", 37.29781893627659, 126.9699114597835],
+                    [
+                        "1인감자탕뼈해장국 율전점",
+                        37.297910399756084,
+                        126.97049840169417,
+                    ],
+                    [
+                        "니뽕내뽕 수원성균관대점",
+                        37.29796545990036,
+                        126.97079083419402,
+                    ],
+                    ["롯데리아", 37.2979425016984, 126.97084970933109],
+                    ["바른스시 성대점", 37.29860186714138, 126.97100368099282],
+                    [
+                        "맥도날드 수원성균관대점",
+                        37.29844983922029,
+                        126.97119259196734,
+                    ],
+                    ["옥집", 37.2986943291727, 126.97077510941845],
+                    ["명륜진사갈비", 37.29898595827222, 126.97132031100803],
+                    ["성대목장", 37.297153229316244, 126.96927514748819],
+                    [
+                        "귀신반점 수원성대점",
+                        37.29700046075257,
+                        126.96927540373663,
+                    ],
+                    ["선참치", 37.29706745475912, 126.96905889017708],
+                    [
+                        "키와마루아지 성균관대점",
+                        37.29699817214786,
+                        126.96877265161183,
+                    ],
+                    [
+                        "우특심한우곱창 장안구율전점",
+                        37.297438047699025,
+                        126.96887433779715,
+                    ],
+                    ["보리네주먹고기", 37.29776256876696, 126.96913619934163],
+                    [
+                        "썬더치킨 수원성균관대점",
+                        37.29823630157604,
+                        126.96908280568832,
+                    ],
+                    [
+                        "동네아저씨 수원성균관대점",
+                        37.29842437371077,
+                        126.9695089706125,
+                    ],
+                    ["피자스쿨 수원성대점", 37.298540844116104, 126.9694145158],
+                    ["짬뽕타임", 37.29859852914026, 126.96931102677213],
+                    [
+                        "대동집 수원성균관대점",
+                        37.29919037387802,
+                        126.97014134103485,
+                    ],
                 ];
- 
-                for(var i=0; i<skku.length; i++){
-                    var title= skku[i][0];
-                    var pos= new google.maps.LatLng(skku[i][1], skku[i][2]);
- 
-                    var m= new google.maps.Marker({
+
+                for (var i = 0; i < skku.length; i++) {
+                    var title = skku[i][0];
+                    var pos = new google.maps.LatLng(skku[i][1], skku[i][2]);
+
+                    var m = new google.maps.Marker({
                         position: pos,
                         title: title,
                         icon: "./button-red2.png",
                         map: map,
                     });
- 
-                    m.addListener('click', function(){
+
+                    m.addListener("click", function () {
                         alert(this.getTitle());
-                    })
- 
+                    });
+                }
             }
- 
-        }
-    </script>
- 
+        </script>
+    </head>
 
+    <body style="padding-top: 90px">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <span class="navbar-brand mx-5 mb-0 font-weight-bold font-italic"
+                ><a class="navbar-brand" href="index.html"
+                    >SKKU-뭐먹지?</a
+                ></span
+            >
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item mx-1 btn">
+                        <a class="nav-link" href="map.html">음식점 지도</a>
+                    </li>
+                    <li class="nav-item mx-1 btn">
+                        <a class="nav-link" href="list.html">음식점 리스트</a>
+                    </li>
+                    <li class="nav-item mx-1 btn">
+                        <a class="nav-link" href="search.html">음식점 검색</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
+        <div>
+            <button onclick="showMap()">성대 지도 보기</button>
+            <button onclick="showMarker()">음식점 위치 보기</button>
 
-</head>
-
-<body style="padding-top:90px;">
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <span class="navbar-brand mx-5 mb-0 font-weight-bold font-italic"><a class="navbar-brand" href="index.html">SKKU-뭐먹지?</a></span>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item mx-1 btn">
-        <a class="nav-link" href="map.html">음식점 지도</a>
-      </li>
-      <li class="nav-item mx-1 btn">
-        <a class="nav-link" href="list.html">음식점 리스트</a>
-      </li>
-      <li class="nav-item mx-1 btn">
-        <a class="nav-link" href="search.html">음식점 검색</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<div>
-    <button onclick="showMap()">성대 지도 보기</button>
-    <button onclick="showMarker()">음식점 위치 보기</button>
- 
-    <!-- 지도 타일 이미지들을 보여줄 영역 div요소 -->
-    <div id="map"></div>   
-</div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/0a612614d9.js" crossorigin="anonymous"></script>
-
-
-</body>
+            <!-- 지도 타일 이미지들을 보여줄 영역 div요소 -->
+            <div id="map"></div>
+        </div>
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://kit.fontawesome.com/0a612614d9.js"
+            crossorigin="anonymous"
+        ></script>
+    </body>
 </html>

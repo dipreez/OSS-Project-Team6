@@ -1,165 +1,194 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<title>SKKU-뭐먹지?</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <title>SKKU-뭐먹지?</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+            crossorigin="anonymous"
+        />
+    </head>
 
-</head>
+    <body style="padding-top: 90px">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <span class="navbar-brand mx-5 mb-0 font-weight-bold font-italic"
+                ><a class="navbar-brand" href="index.html"
+                    >SKKU-뭐먹지?</a
+                ></span
+            >
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<body style="padding-top:90px;">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item mx-1 btn">
+                        <a class="nav-link" href="map.html">음식점 지도</a>
+                    </li>
+                    <li class="nav-item mx-1 btn">
+                        <a class="nav-link" href="list.html">음식점 리스트</a>
+                    </li>
+                    <li class="nav-item mx-1 btn">
+                        <a class="nav-link" href="search.html">음식점 검색</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <span class="navbar-brand mx-5 mb-0 font-weight-bold font-italic"><a class="navbar-brand" href="index.html">SKKU-뭐먹지?</a></span>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+        <table class="table mx-auto mt-5" style="width: 1000px">
+            <thead>
+                <tr>
+                    <th scope="col">식당</th>
+                    <th scope="col">카테고리</th>
+                    <th scope="col">위치</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>오덮밥</td>
+                    <td>퓨전요리</td>
+                    <td>경기 수원시 장안구 서부로2126번길 24</td>
+                </tr>
+                <tr>
+                    <td>일미리금계찜닭 수원성균관대점</td>
+                    <td>닭요리</td>
+                    <td>경기 수원시 장안구 서부로2126번길 18 1층</td>
+                </tr>
+                <tr>
+                    <td>고피자 수원성대점</td>
+                    <td>피자</td>
+                    <td>경기 수원시 장안구 서부로2126번길 18</td>
+                </tr>
+                <tr>
+                    <td>먹거리고을</td>
+                    <td>호프, 요리주점</td>
+                    <td>경기 수원시 장안구 서부로2126번길 10</td>
+                </tr>
+                <tr>
+                    <td>힌카쿠</td>
+                    <td>일식집</td>
+                    <td>경기 수원시 장안구 서부로2126번길 10</td>
+                </tr>
+                <tr>
+                    <td>맘스터치 수원성균관대점</td>
+                    <td>패스트푸드</td>
+                    <td>경기 수원시 장안구 서부로2128 2층</td>
+                </tr>
+                <tr>
+                    <td>노랑통닭 성균관대점</td>
+                    <td>치킨</td>
+                    <td>경기 수원시 장안구 화산로213번길 32</td>
+                </tr>
+                <tr>
+                    <td>청년밥상</td>
+                    <td>한식</td>
+                    <td>경기 수원시 장안구 서부로 2136번길 10 1층</td>
+                </tr>
+                <tr>
+                    <td>성대밥상</td>
+                    <td>한식</td>
+                    <td>경기 수원시 장안구 서부로2126번길 50-10 1층</td>
+                </tr>
+                <tr>
+                    <td>탕화쿵푸마라탕</td>
+                    <td>중식</td>
+                    <td>경기 수원시 장안구 서부로2105번길 12</td>
+                </tr>
+                <tr>
+                    <td>최고집원조수구레</td>
+                    <td>육류, 고기</td>
+                    <td>경기 수원시 장안구 서부로2107 1층</td>
+                </tr>
+                <tr>
+                    <td>춘천닭갈비칡냉면</td>
+                    <td>닭요리</td>
+                    <td>경기 수원시 장안구 화산로233번길 64 1층</td>
+                </tr>
+                <tr>
+                    <td>만다김밥</td>
+                    <td>분식</td>
+                    <td>경기 수원시 장안구 서부로2105 16-6 1층</td>
+                </tr>
+                <tr>
+                    <td>항아리보쌈 성대직영점</td>
+                    <td>족발, 보쌈</td>
+                    <td>경기 수원시 장안구 화산로233번길 64 2층</td>
+                </tr>
+                <tr>
+                    <td>미가</td>
+                    <td>일본식라면</td>
+                    <td>경기 수원시 장안구 화산로233번길 59</td>
+                </tr>
+                <tr>
+                    <td>차돌풍 수원성대점</td>
+                    <td>육류, 고기</td>
+                    <td>경기 수원시 장안구 화산로233번길 62 1층</td>
+                </tr>
+                <tr>
+                    <td>담은샤브칼국수</td>
+                    <td>샤브샤브</td>
+                    <td>경기 수원시 장안구 화산로233번길 60</td>
+                </tr>
+                <tr>
+                    <td>성대양꼬치&훠궈</td>
+                    <td>양꼬치</td>
+                    <td>경기 수원시 장안구 화산로233번길 54</td>
+                </tr>
+                <tr>
+                    <td>백령도생바지락칼국수</td>
+                    <td>국수</td>
+                    <td>경기 수원시 장안구 화산로233번길 49</td>
+                </tr>
+                <tr>
+                    <td>박가네숯불닭갈비</td>
+                    <td>닭요리</td>
+                    <td>경기 수원시 장안구 화산로233번길 46</td>
+                </tr>
+            </tbody>
+        </table>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item mx-1 btn">
-        <a class="nav-link" href="map.html">음식점 지도</a>
-      </li>
-      <li class="nav-item mx-1 btn">
-        <a class="nav-link" href="list.html">음식점 리스트</a>
-      </li>
-      <li class="nav-item mx-1 btn">
-        <a class="nav-link" href="search.html">음식점 검색</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="list.html">1</a>
+                </li>
+                <li class="page-item active" aria-current="page">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="list3.html">3</a>
+                </li>
+            </ul>
+        </nav>
 
-<table class="table mx-auto mt-5" style="width: 1000px">
-  <thead>
-    <tr>
-      <th scope="col">식당</th>
-      <th scope="col">카테고리</th>
-      <th scope="col">위치</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>오덮밥</td>
-      <td>퓨전요리</td>
-      <td>경기 수원시 장안구 서부로2126번길 24</td>
-    </tr>
-    <tr>
-      <td>일미리금계찜닭 수원성균관대점</td>
-      <td>닭요리</td>
-      <td>경기 수원시 장안구 서부로2126번길 18 1층</td>
-    </tr>
-    <tr>
-      <td>고피자 수원성대점</td>
-      <td>피자</td>
-      <td>경기 수원시 장안구 서부로2126번길 18</td>
-    </tr>
-    <tr>
-      <td>먹거리고을</td>
-      <td>호프, 요리주점</td>
-      <td>경기 수원시 장안구 서부로2126번길 10</td>
-    </tr>
-    <tr>
-      <td>힌카쿠</td>
-      <td>일식집</td>
-      <td>경기 수원시 장안구 서부로2126번길 10</td>
-    </tr>
-    <tr>
-      <td>맘스터치 수원성균관대점</td>
-      <td>패스트푸드</td>
-      <td>경기 수원시 장안구 서부로2128 2층</td>
-    </tr>
-    <tr>
-      <td>노랑통닭 성균관대점</td>
-      <td>치킨</td>
-      <td>경기 수원시 장안구 화산로213번길 32</td>
-    </tr>
-    <tr>
-      <td>청년밥상</td>
-      <td>한식</td>
-      <td>경기 수원시 장안구 서부로 2136번길 10 1층</td>
-    </tr>
-    <tr>
-      <td>성대밥상</td>
-      <td>한식</td>
-      <td>경기 수원시 장안구 서부로2126번길 50-10 1층</td>
-    </tr>
-    <tr>
-      <td>탕화쿵푸마라탕</td>
-      <td>중식</td>
-      <td>경기 수원시 장안구 서부로2105번길 12</td>
-    </tr>
-    <tr>
-      <td>최고집원조수구레</td>
-      <td>육류, 고기</td>
-      <td>경기 수원시 장안구 서부로2107 1층</td>
-    </tr>
-    <tr>
-      <td>춘천닭갈비칡냉면</td>
-      <td>닭요리</td>
-      <td>경기 수원시 장안구 화산로233번길 64 1층</td>
-    </tr>
-    <tr>
-      <td>만다김밥</td>
-      <td>분식</td>
-      <td>경기 수원시 장안구 서부로2105 16-6 1층</td>
-    </tr>
-    <tr>
-      <td>항아리보쌈 성대직영점</td>
-      <td>족발, 보쌈</td>
-      <td>경기 수원시 장안구 화산로233번길 64 2층</td>
-    </tr>
-    <tr>
-      <td>미가</td>
-      <td>일본식라면</td>
-      <td>경기 수원시 장안구 화산로233번길 59</td>
-    </tr>
-    <tr>
-      <td>차돌풍 수원성대점</td>
-      <td>육류, 고기</td>
-      <td>경기 수원시 장안구 화산로233번길 62 1층</td>
-    </tr>
-    <tr>
-      <td>담은샤브칼국수</td>
-      <td>샤브샤브</td>
-      <td>경기 수원시 장안구 화산로233번길 60</td>
-    </tr>
-    <tr>
-      <td>성대양꼬치&훠궈</td>
-      <td>양꼬치</td>
-      <td>경기 수원시 장안구 화산로233번길 54</td>
-    </tr>
-    <tr>
-      <td>백령도생바지락칼국수</td>
-      <td>국수</td>
-      <td>경기 수원시 장안구 화산로233번길 49</td>
-    </tr>
-    <tr>
-      <td>박가네숯불닭갈비</td>
-      <td>닭요리</td>
-      <td>경기 수원시 장안구 화산로233번길 46</td>
-    </tr>
-  </tbody>
-</table>
-
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item"><a class="page-link" href="list.html">1</a></li>
-    <li class="page-item active" aria-current="page">
-        <a class="page-link" href="#">2</a>
-      </li>
-    <li class="page-item"><a class="page-link" href="list3.html">3</a></li>
-  </ul>
-</nav>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/0a612614d9.js" crossorigin="anonymous"></script>
-
-
-</body>
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://kit.fontawesome.com/0a612614d9.js"
+            crossorigin="anonymous"
+        ></script>
+    </body>
 </html>
