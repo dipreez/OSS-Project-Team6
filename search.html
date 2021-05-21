@@ -81,13 +81,12 @@
                     <th>음식점 검색</th>
                     <th></th>
                     <th></th>
-                    <th></th>
+                    <th><button id="resetButton" class= "btn btn-link btn-sm btn-block" style="height: 30px; font-size: large;" type="button">초기화</button></th>
                 </tr>
             </thead>
 
             <tbody>
                 <tr>
-                    <!--체크박스 초기화 버튼 추가할것-->
                     <td>
                         <label style="cursor: pointer"
                             ><input
@@ -259,11 +258,11 @@
                 let addbody = document.getElementById("addRestaurant");
                 let tr = document.createElement("tr");
                 let td1 = document.createElement("td");
-                td1.innerHTML = info[0]; // 추가할것
+                td1.innerHTML = info[0]; 
                 let td2 = document.createElement("td");
-                td2.innerHTML = info[1]; // 추가할것
+                td2.innerHTML = info[1]; 
                 let td3 = document.createElement("td");
-                td3.innerHTML = info[2]; // 추가할것
+                td3.innerHTML = info[2]; 
                 tr.appendChild(td1);
                 tr.appendChild(td2);
                 tr.appendChild(td3);
@@ -597,7 +596,6 @@
             };
             let Sbutton = document.querySelector("#searchButton");
             Sbutton.addEventListener("click", () => {
-                // 클릭시 초기화 기능 추가할것
                 reset();
                 const food = 'input[name="Food_type"]:checked';
                 const selectedType = document.querySelectorAll(food);
@@ -630,6 +628,14 @@
                 info[1] = restaurant[index][secondindex].category;
                 info[2] = restaurant[index][secondindex].place;
                 addtoList(info);
+            });
+            let ResetButton =  document.querySelector("#resetButton");
+            ResetButton.addEventListener("click",()=>{
+                reset();
+                let ch = document.querySelectorAll('input[name="Food_type"]:checked');
+                for(let i =0;i<ch.length;i++){
+                    ch[i].checked= false;
+                }
             });
         </script>
         <script
