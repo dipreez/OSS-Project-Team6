@@ -25,7 +25,7 @@ Above is the main page you will see when accessed our website. You can use other
 
 ![image](https://user-images.githubusercontent.com/50349104/119183157-a75e8f00-baae-11eb-858c-2de90f34fee6.png)
 
-This is the page that opens when you click '음식점 지도' in the navigation bar. You can view a map near Sungkyunkwan University on Google Maps by clicking the '성대 지도 보기' button. When you click "음식점 위치 보기", restaurants registered on the SKKU-뭐먹지 near Sungkyunkwan University appear in red dots on the map.
+This is the page that opens when you click '음식점 지도' in the navigation bar. You can view a map near Sungkyunkwan University on Google Maps by clicking the '성대 지도 보기' button. When you click "음식점 위치 보기", restaurants registered on the SKKU-뭐먹지 near Sungkyunkwan University appear in red dots on the map. If you click the red dot, you can see the name of restaurant.
 
 #### Restaurant List
 
