@@ -41,6 +41,10 @@ Above is the page that opens when you click '음식점 리스트' in the navigat
 
 This is the page that appears when you click '검색' in the navigation bar. Here, you can select the category of restaurants you want and click the Search button to find the restaurants that correspond to the category. You can also randomly select one of the restaurants in the category by clicking the "랜덤추첨". The above shows a simple example of search and random recommendation results.
 
+## API reference
+
+The 'map.html' was developed using Maps JavaScript API. Visit [here](https://cloud.google.com/maps-platform/) for more information.
+
 ## Code of Conduct
 
 This project has adopted the Contributor Covenant Code of Conduct. For more information refer to the CODE_OF_CONDUCT.md file in the repository.
@@ -50,4 +54,5 @@ This project has adopted the Contributor Covenant Code of Conduct. For more info
 The project is licensed under the MIT license. View the LICENSE file for further information.
 
 # Demo Video Link
-https://youtu.be/G2RCPNLwrGg
+
+[youtube link](https://youtu.be/G2RCPNLwrGg).
