@@ -5,6 +5,13 @@ We will make a website that introduces restaurant’s locations and categorize t
 
 ## instructions
 
+### Tech stack
+
+<img src="https://img.shields.io/badge/Django-092E20?style=flat&logo=Django&logoColor=white"/>
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white"/>
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white"/>
+<img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=Firebase&logoColor=white"/>
+
 ### Installation
 
 This repository is where the development of the web project SKKU-뭐먹지 is carried out. Since it is a web application, it does not require any complex installation and can be accessed through Github-pages. Alternatively, you can download the latest release of the repository and launch it by opening any HTML file using a web browser.
